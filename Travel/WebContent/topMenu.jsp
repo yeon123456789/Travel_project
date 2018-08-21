@@ -49,17 +49,15 @@
                     <div class="object" id="object_four"></div>
                 </div>
             </div>
-        </div><!--End off Preloader -->
+        </div>
 
 
         <div class="culmn"><div>
-            <!--Home page style-->
 
 
             <nav class="navbar navbar-default bootsnav navbar-fixed white no-background">
                 <div class="container">
 
-                    <!-- Start Atribute Navigation -->
                     <div class="attr-nav">
                      <ul>
                             <li><a href="login.jsp">Login</a></li>
@@ -67,31 +65,40 @@
                             <li><a href="#">Pocket</a></li>
                         </ul>
                     </div>
-                    <!-- End Atribute Navigation -->
-
-
-                    <!-- Start Header Navigation -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="#brand">
+                        <a class="navbar-brand" href="realindex.jsp">
                            <img src="assets/images/logo.png" class="logo logo-display" alt="">
                             <img src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">
                         </a>
 
                     </div>
-                    <!-- End Header Navigation -->
-
-                    <!-- navbar menu -->
+                    <script>
+                    function showDivTheme() {
+                    	 document.getElementById('seasons').style.display = "none";
+  						 document.getElementById('theme').style.display = "block";
+					}
+                    function showDivSeasons() {
+                    	 document.getElementById('theme').style.display = "none";
+ 						 document.getElementById('seasons').style.display = "block";
+					}
+                    
+                    function removeThemeSeasons(){
+                    	document.getElementById('theme').style.display = "none";
+                    	 document.getElementById('seasons').style.display = "none";
+                    }
+                    </script>
+                    
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-center">
-                            <li><a href="#home" onclick="popupMarker()">Popular</a></li>
-                            <li><a href="#features">Theme</a></li>
-                            <li><a href="#reviews">Seasons</a></li>
+                            <li><a href="#home" onclick="getPopularPlace(); removeThemeSeasons();" >Popular</a></li>
+                            <li><a href="#features" onclick="showDivTheme()">Theme</a></li>
+                            <li><a href="#reviews" onclick="showDivSeasons()">Seasons</a></li>
                             <li><a href="#download">FAQ</a></li>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
+                    </div>
                 </div>
             </nav>
             

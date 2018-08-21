@@ -21,7 +21,6 @@ public class Allcontroller extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		
 		String command = request.getParameter("command");
 		
 		if (command.equals("login")) {

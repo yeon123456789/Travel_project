@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -31,15 +31,30 @@
         
         <script type="text/javascript">
         	if("${requestScope.msg}" == "joinsucc"){
-        		alert("°èÁ¤ÀÌ µî·Ï µÇ¾ú½À´Ï´Ù");
+        		alert("ê³„ì •ì´ ë“±ë¡ ë˜ì—ˆìŠµë‹ˆë‹¤");
         	}     
         	
         	if("${requestScope.msg}" == "loginsucc"){
-        		alert("·Î±×ÀÎÀÌ Á¤»óÀûÀ¸·Î Ã³¸®µÇ¾ú½À´Ï´Ù.");
+        		alert("ë¡œê·¸ì¸ì´ ì •ìƒì ìœ¼ë¡œ ì²˜ë¦¬ë˜ì—ˆìŠµë‹ˆë‹¤.");
         	}      
         </script>
-        
-       
+        <style>
+          div #theme{
+				margin-top:60px;
+				text-align:center;
+				display:none;
+				position:absolute;
+   				left: 40%;
+	      }
+	        
+	      div #seasons{
+				margin-top:60px;
+				text-align:center;
+				display:none;
+				position:absolute;
+   				left: 40%;
+	      }
+       	</style>
 	</head>
 	
 		<body>
@@ -50,11 +65,26 @@
             <section id="home" class="home">
                 <div class="container">
                         <div class="main_home">
-                                    <jsp:include page="mapSeoul.jsp" flush="true"/>
+                        	<jsp:include page="mapSeoul.jsp" flush="true"/>
+                        	
+                        	<div id="theme" >
+	                        	<button type="button" class="btn btn-default" onclick="getHistoryPlace()">History</button>
+					    	    <button type="button" class="btn btn-default" onclick="getCulturePlace()">Culture</button>
+					    	    <button type="button" class="btn btn-default" onclick="getDtEPlace()">Die to Eat</button>
+					    	    <button type="button" class="btn btn-default" onclick="getLeisurePlace()">Leisure</button>
+				    	    </div>
+				    	    
+				    	    <div id="seasons" >
+	                        	<button type="button" class="btn btn-default" onclick="getSpringFallPlace()">Spring&Fall</button>
+					    	    <button type="button" class="btn btn-default" onclick="getSummerPlace()">Summer</button>
+					    	    <button type="button" class="btn btn-default" onclick="getWinterPlace()">Winter</button>
+				    	    </div>
                         </div>
                 </div><!--End off container -->
+                
+                
             </section> <!--End off Home Sections-->
-
+			
             <!-- scroll up-->
             <div class="scrollup">
                 <a href="#"><i class="fa fa-chevron-up"></i></a>
@@ -69,4 +99,6 @@
     
 	
 	</body>
+	
+
 </html>

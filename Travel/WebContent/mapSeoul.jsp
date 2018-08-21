@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/plain; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -69,6 +69,132 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <script>
+    
+ 	
+    //비동기 처리 기술 새로 추가
+    function getPopularPlace() {
+    	
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
+					//응답된 데이터를 JSON 객체로 변환
+					data= xhttp.responseText;
+					data = eval(data);
+					popupMarker(data);
+				}
+			};
+			xhttp.open("GET", "popularAll.do",true);
+			xhttp.send();
+		}
+    
+    function getHistoryPlace() {
+    	
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				//응답된 데이터를 JSON 객체로 변환
+				data= xhttp.responseText;
+				data = eval(data);
+				popupMarker(data);
+			}
+		};
+		xhttp.open("GET", "historyAll.do",true);
+		xhttp.send();
+	}
+	
+	 function getCulturePlace() {
+    	
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				//응답된 데이터를 JSON 객체로 변환
+				data= xhttp.responseText;
+				data = eval(data);
+				popupMarker(data);
+			}
+		};
+		xhttp.open("GET", "cultureAll.do",true);
+		xhttp.send();
+	}
+	
+	 function getDtEPlace() {
+    	
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				//응답된 데이터를 JSON 객체로 변환
+				data= xhttp.responseText;
+				data = eval(data);
+				popupMarker(data);
+			}
+		};
+		xhttp.open("GET", "dietoeatAll.do",true);
+		xhttp.send();
+	}
+    
+     function getLeisurePlace() {
+    	
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				//응답된 데이터를 JSON 객체로 변환
+				data= xhttp.responseText;
+				data = eval(data);
+				popupMarker(data);
+			}
+		};
+		xhttp.open("GET", "leisureAll.do",true);
+		xhttp.send();
+	}
+	
+	function getSpringFallPlace() {
+    	
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				//응답된 데이터를 JSON 객체로 변환
+				data= xhttp.responseText;
+				data = eval(data);
+				popupMarker(data);
+			}
+		};
+		xhttp.open("GET", "springfallAll.do",true);
+		xhttp.send();
+	}
+	
+	function getSummerPlace() {
+    	
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				//응답된 데이터를 JSON 객체로 변환
+				data= xhttp.responseText;
+				data = eval(data);
+				popupMarker(data);
+			}
+		};
+		xhttp.open("GET", "summerAll.do",true);
+		xhttp.send();
+	}
+	
+	function getWinterPlace() {
+    	
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				//응답된 데이터를 JSON 객체로 변환
+				data= xhttp.responseText;
+				data = eval(data);
+				popupMarker(data);
+			}
+		};
+		xhttp.open("GET", "winterAll.do",true);
+		xhttp.send();
+	}
+    
+    
+    
+    
     var width = 800,
         height = 600;
 
@@ -106,8 +232,8 @@
           .text(function(d) { return d.properties.name; })
     });
 	
-    function popupMarker(){
-	    d3.csv("places1.csv", function(data) {
+    function popupMarker(data){
+    	d3.selectAll("circle").remove();
 	        places.selectAll("circle")
 	            .data(data)
 	         	.enter().append("circle")
@@ -133,10 +259,11 @@
 	        
 	        function handleMouseOut(d, i) {
 	        	d3.select("#t"+d.name).remove();  // Remove text location
+	        	
 	        }  
 	        
-	    })
-    }
+	    }
+    
      
     </script>
 			
